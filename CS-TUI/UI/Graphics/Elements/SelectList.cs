@@ -1,10 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Numerics;
+using CS_TUI.UI.Graphics.Styles;
 
 namespace CS_TUI.UI.Graphics.Elements
 {
-    public class SelectList : Form
+    public class SelectList : Form, IBackground
     {
         public delegate void ClickItemHandler(int selectedItem, Text label);
         public event ClickItemHandler clickItemEvent;
@@ -112,10 +113,6 @@ namespace CS_TUI.UI.Graphics.Elements
         public void setUnselectedColor(ConsoleColor s)
         {
             fgUnselected = s;
-        }
-        public void setBackground(ConsoleColor s)
-        {
-            background = s;
         }
         
         public virtual ConsoleColor getSelectedColor()

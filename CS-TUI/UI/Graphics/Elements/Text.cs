@@ -1,9 +1,10 @@
 ﻿using System;
 using System.Numerics;
+using CS_TUI.UI.Graphics.Styles;
 
 namespace CS_TUI.UI.Graphics.Elements
 {
-    public class Text : Element
+    public class Text : Element, IBackground , IColor
     {
         protected string text
         {

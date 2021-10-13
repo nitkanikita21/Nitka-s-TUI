@@ -24,6 +24,7 @@ namespace CS_TUI.UI
             Console.CursorVisible = false;
             Console.OutputEncoding = Encoding.UTF8;
             Console.InputEncoding = Encoding.UTF8;
+            Console.CursorVisible = false;
 
             Keyboard keyboard = new Keyboard();
             

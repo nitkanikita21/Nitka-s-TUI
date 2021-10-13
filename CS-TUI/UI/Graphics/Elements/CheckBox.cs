@@ -1,9 +1,10 @@
 ﻿using System;
 using System.Numerics;
+using CS_TUI.UI.Graphics.Styles;
 
 namespace CS_TUI.UI.Graphics.Elements
 {
-    public class CheckBox : Text
+    public class CheckBox : Text, IBackground , IColor
     {
         protected string checkedChar = "+";
         protected string uncheckedChar = "x";
@@ -19,15 +20,6 @@ namespace CS_TUI.UI.Graphics.Elements
         }
 
         #region Styles
-
-        public void setColor(ConsoleColor s)
-        {
-            color = s;
-        }
-        public void setBackground(ConsoleColor s)
-        {
-            back = s;
-        }
         public virtual ConsoleColor getColor()
         {
             return color;

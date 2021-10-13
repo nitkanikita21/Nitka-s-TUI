@@ -5,7 +5,7 @@ namespace CS_TUI.UI.Graphics.Elements
 {
     public class Container: Element
     {
-        private List<Element> items;
+        protected List<Element> items = new List<Element>();
 
         public void addElement(Element e)
         {
