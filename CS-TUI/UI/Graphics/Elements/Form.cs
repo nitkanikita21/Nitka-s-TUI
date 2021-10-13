@@ -29,6 +29,19 @@ namespace CS_TUI.UI.Graphics.Elements
             background = bg;
         }
 
+        #region Styles
+        
+        public void setBackground(ConsoleColor s)
+        {
+            background = s;
+        }
+        public virtual ConsoleColor getBackground()
+        {
+            return background;
+        }
+
+        #endregion
+        
         public Vector2 getCenter(bool w = true, bool h = true)
         {
             return new Vector2(

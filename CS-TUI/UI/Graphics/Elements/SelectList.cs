@@ -102,6 +102,35 @@ namespace CS_TUI.UI.Graphics.Elements
             Keyboard.keyPressEvent += onKeyInterract;
         }
 
+        #region Styles
+        
+        
+        public void setSelectedColor(ConsoleColor s)
+        {
+            fgSelected = s;
+        }
+        public void setUnselectedColor(ConsoleColor s)
+        {
+            fgUnselected = s;
+        }
+        public void setBackground(ConsoleColor s)
+        {
+            background = s;
+        }
+        
+        public virtual ConsoleColor getSelectedColor()
+        {
+            return fgSelected;
+        }
+        public virtual ConsoleColor getUnselectedColor()
+        {
+            return fgUnselected;
+        }
+
+        
+
+        #endregion
+
         private void onKeyInterract(ConsoleKeyInfo key)
         {
             if (key.Key == upKey)

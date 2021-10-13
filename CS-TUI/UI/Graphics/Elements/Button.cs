@@ -11,11 +11,32 @@ namespace CS_TUI.UI.Graphics.Elements
         public event PressButtonHandler pressButtonEvent;
         
         
-        public Button(Vector2 position, string text, ConsoleKey key, ConsoleColor color = ConsoleColor.Cyan, ConsoleColor back = ConsoleColor.DarkBlue) : base(position, text, color, back)
+        public Button(Vector2 position, ConsoleKey key, ConsoleColor color = ConsoleColor.Cyan, ConsoleColor back = ConsoleColor.DarkBlue) : base(position)
         {
             this.key = key;
             Keyboard.keyPressEvent += onUse;
         }
+
+        #region Styles
+
+        public void setColor(ConsoleColor s)
+        {
+            color = s; 
+        }
+        public void setBackground(ConsoleColor s)
+        {
+            back = s;
+        }
+        public virtual ConsoleColor getColor()
+        {
+            return color;
+        }
+        public virtual ConsoleColor getBackground()
+        {
+            return back;
+        }
+
+        #endregion
 
         protected override void onRender()
         {

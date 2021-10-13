@@ -22,12 +22,43 @@ namespace CS_TUI.UI.Graphics.Elements
             set;
         }
 
-        public Text(Vector2 position, string text, ConsoleColor color = ConsoleColor.White, ConsoleColor back = ConsoleColor.Black) : base(position)
+        public Text(Vector2 position) : base(position)
         {
             this.text = text;
-            this.color = color;
-            this.back = back;
         }
+
+        #region Styles
+
+        public void setColor(ConsoleColor s)
+        {
+            color = s; 
+        }
+        public void setBackground(ConsoleColor s)
+        {
+            back = s;
+        }
+        public ConsoleColor getColor()
+        {
+            return color;
+        }
+        public ConsoleColor getBackground()
+        {
+            return back;
+        }
+
+        
+        
+        
+        public virtual string getText()
+        {
+            return text;
+        }
+        public virtual Text setText(string s)
+        {
+            text = s;
+            return this;
+        }
+        #endregion
 
         protected override void onRender()
         {
@@ -36,16 +67,6 @@ namespace CS_TUI.UI.Graphics.Elements
             Console.Write(text);
         }
 
-        public virtual string getText()
-        {
-            return text;
-        }
-
-        public virtual void setText(string str)
-        {
-            text = str;
-        }
-        
         public int centerOffsetX()
         {
             return getWidth() / 2;

@@ -42,28 +42,52 @@ namespace CS_TUI
 
             #region Exit
 
-            Button exit = new Button(new Vector2(0, -1), "Exit", ConsoleKey.Escape, ConsoleColor.Gray, back:ConsoleColor.DarkGray);
-            exit.position = new Vector2(window.getWidth() - exit.getText().Length,-1);
+            Button exit = new Button(new Vector2(0, -1), ConsoleKey.Escape);
+            exit.setText("Exit");
+            exit.setBackground(ConsoleColor.DarkGray);
+            exit.setColor(ConsoleColor.Black);
+            exit.setPosition(new Vector2(window.getWidth() - exit.getText().Length,-1));
             exit.pressButtonEvent += (key, button) =>
             {
                 button.setText("Exiting...");
-                exit.position = new Vector2(window.getWidth() - exit.getText().Length,-1);
+                exit.setPosition(new Vector2(window.getWidth() - exit.getText().Length,-1));
                 window.exit();
             };
             window.addElement(exit);
 
             #endregion
 
-            Text controlLabel = new Text(new Vector2(2,40), "Move:[Up/Down] Open:[Enter] Delete:[Delete]",back:ConsoleColor.DarkBlue,color:ConsoleColor.DarkGreen);
+            #region Labels
 
-            Text line = new Text(new Vector2(0,1), new string('=',window.getWidth()),back:ConsoleColor.DarkBlue,color:  ConsoleColor.DarkCyan);
-            Text line2 = new Text(new Vector2(0,39), new string('=',window.getWidth()),back:ConsoleColor.DarkBlue,color:ConsoleColor.DarkCyan);
-            Text line3 = new Text(new Vector2(0,41), new string('=',window.getWidth()),back:ConsoleColor.DarkBlue,color:ConsoleColor.DarkCyan);
+            Text controlLabel = new Text(new Vector2(2, 40));
+            controlLabel.setText("Move:[Up/Down] Open:[Enter] Delete:[Delete]");
+            controlLabel.setBackground(ConsoleColor.DarkBlue);
+            controlLabel.setColor(ConsoleColor.DarkGreen);
 
-            Button changeDisk = new Button(Vector2.Zero, "Change Dir", ConsoleKey.Spacebar);
-            changeDisk.position = new Vector2(
+            Text line = new Text(new Vector2(0, 1));
+            line.setText(new string('=', window.getWidth()));
+            line.setBackground(ConsoleColor.DarkBlue);
+            line.setColor(ConsoleColor.DarkCyan);
+            
+            Text line2 = new Text(new Vector2(0, 39));
+            line2.setText(new string('=', window.getWidth()));
+            line2.setBackground(ConsoleColor.DarkBlue);
+            line2.setColor(ConsoleColor.DarkCyan);
+            
+            Text line3 = new Text(new Vector2(0, 41));
+            line3.setText(new string('=', window.getWidth()));
+            line3.setBackground(ConsoleColor.DarkBlue);
+            line3.setColor(ConsoleColor.DarkCyan);
+
+            #endregion
+            
+            Button changeDisk = new Button(Vector2.Zero, ConsoleKey.Spacebar);
+            changeDisk.setText("Change Dir");
+            changeDisk.setBackground(ConsoleColor.DarkBlue);
+            changeDisk.setColor(ConsoleColor.DarkCyan);
+            changeDisk.setPosition(new Vector2(
                 window.getWidth()-changeDisk.getText().Length-2,40
-                );
+            ));
             changeDisk.pressButtonEvent += (key, button) =>
             {
                 indexDriver++;
@@ -73,12 +97,20 @@ namespace CS_TUI
 
             #region File Data
 
-            name = new Text(new Vector2(0, 42), "FILENAME" ,
-                back: ConsoleColor.DarkBlue, color: ConsoleColor.DarkCyan);
-            path = new Text(new Vector2(0, 43), "Path: PATH" ,
-                back: ConsoleColor.DarkBlue, color: ConsoleColor.DarkCyan);
-            size = new Text(new Vector2(0, 44), "SIZE" ,
-                back: ConsoleColor.DarkBlue, color: ConsoleColor.DarkYellow);
+            name = new Text(new Vector2(0, 42));
+            name.setColor(ConsoleColor.DarkCyan);
+            name.setBackground(ConsoleColor.DarkBlue);
+            name.setText("FILENAME");
+            
+            path = new Text(new Vector2(0, 43));
+            path.setColor(ConsoleColor.DarkCyan);
+            path.setBackground(ConsoleColor.DarkBlue);
+            path.setText("FILENAME");
+            
+            size = new Text(new Vector2(0, 44));
+            size.setColor(ConsoleColor.DarkYellow);
+            size.setBackground(ConsoleColor.DarkBlue);
+            size.setText("FILENAME");
 
             #endregion
 
@@ -145,15 +177,25 @@ namespace CS_TUI
             itemsFolder = new List<string>();
 
             itemsFolder.Add("../");
-            list.addItem(new Text(Vector2.Zero, "../"));
+            
+            var root = new Text(Vector2.Zero);
+            root.setText("../");
+            
+            list.addItem(root);
             foreach (string directory in Directory.GetDirectories(pathToCurrentDir))
             {
-                list.addItem(new Text(Vector2.Zero, "DIR "+Path.GetFileName(directory)));
+                var dir = new Text(Vector2.Zero);
+                dir.setText("DIR " + Path.GetFileName(directory));
+                
+                list.addItem(dir);
                 itemsFolder.Add(directory);
             }
             foreach (string file in Directory.GetFiles(pathToCurrentDir))
             {
-                list.addItem(new Text(Vector2.Zero, Path.GetFileName(file)));
+                var f = new Text(Vector2.Zero);
+                f.setText(Path.GetFileName(file));
+                
+                list.addItem(f);
                 itemsFolder.Add(file);
             }
 

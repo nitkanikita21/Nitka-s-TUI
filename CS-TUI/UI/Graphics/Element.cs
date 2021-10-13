@@ -9,12 +9,24 @@ namespace CS_TUI.UI.Graphics
         {
             this.position = position;
         }
-        
-        public Vector2 position
+
+        protected Vector2 position;
+
+        public virtual Vector2 getPosition()
         {
-            get;
-            set;
+            return position;
         }
+
+        public virtual void setPosition(Vector2 pos)
+        {
+            position = pos;
+        }
+
+        public virtual void addPosition(Vector2 pos)
+        {
+            position += pos;
+        }
+        
 
         protected virtual void onRender()
         {
