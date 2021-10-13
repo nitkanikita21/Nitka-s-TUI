@@ -3,9 +3,9 @@ using System.Numerics;
 
 namespace CS_TUI.UI.Graphics.Elements
 {
-    public class Label : UIElement
+    public class Text : UIElement
     {
-        public string text
+        protected string text
         {
             get;
             set;
@@ -22,7 +22,7 @@ namespace CS_TUI.UI.Graphics.Elements
             set;
         }
 
-        public Label(Vector2 position, string text, ConsoleColor color = ConsoleColor.White, ConsoleColor back = ConsoleColor.Black) : base(position)
+        public Text(Vector2 position, string text, ConsoleColor color = ConsoleColor.White, ConsoleColor back = ConsoleColor.Black) : base(position)
         {
             this.text = text;
             this.color = color;
@@ -36,9 +36,14 @@ namespace CS_TUI.UI.Graphics.Elements
             Console.Write(text);
         }
 
-        protected virtual string getText()
+        public virtual string getText()
         {
             return text;
+        }
+
+        public virtual void setText(string str)
+        {
+            text = str;
         }
         
         public int centerOffsetX()

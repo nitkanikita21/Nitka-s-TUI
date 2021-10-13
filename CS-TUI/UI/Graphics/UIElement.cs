@@ -23,15 +23,15 @@ namespace CS_TUI.UI.Graphics
         {
         }
         
-        public void render()
+        public void render(bool setPos = true)
         {
-            Console.SetCursorPosition((int) position.X,(int)position.Y+1);
+            if(setPos)Console.SetCursorPosition((int) position.X,(int)position.Y+1);
             onRender();
         }
 
-        public void update()
+        public void update(bool setPos = true)
         {
-            Console.SetCursorPosition((int) position.X,(int)position.Y);
+            if(setPos)Console.SetCursorPosition((int) position.X,(int)position.Y+1);
             onUpdate();
         }
     }
