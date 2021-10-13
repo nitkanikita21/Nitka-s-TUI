@@ -3,7 +3,7 @@ using System.Numerics;
 
 namespace CS_TUI.UI.Graphics.Elements
 {
-    public class Text : UIElement
+    public class Text : Element
     {
         protected string text
         {

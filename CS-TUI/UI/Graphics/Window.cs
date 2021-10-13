@@ -33,7 +33,7 @@ namespace CS_TUI.UI.Graphics
             return title;
         }
         
-        List<UIElement> elements = new List<UIElement>();
+        List<Component> elements = new List<Component>();
         ConsoleColor background = ConsoleColor.Black;
         private int w;
         private int h;
@@ -63,11 +63,14 @@ namespace CS_TUI.UI.Graphics
             Console.BackgroundColor = background;
             foreach (var element in elements)
             {
-                element.render();
+                if (typeof(Element).IsInstanceOfType(element))
+                {
+                    ((Element)element).render();
+                }
             }
         }
 
-        public void addElement(UIElement element)
+        public void addElement(Component element)
         {
             elements.Add(element);
         }

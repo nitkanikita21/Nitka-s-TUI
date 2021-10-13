@@ -3,7 +3,7 @@ using System.Numerics;
 
 namespace CS_TUI.UI.Graphics.Elements
 {
-    public class Form : UIElement
+    public class Form : Element
     {
         public int width
         {

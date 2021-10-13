@@ -3,9 +3,9 @@ using System.Numerics;
 
 namespace CS_TUI.UI.Graphics
 {
-    public class UIElement
+    public class Element : Component
     {
-        public UIElement(Vector2 position)
+        public Element(Vector2 position)
         {
             this.position = position;
         }
